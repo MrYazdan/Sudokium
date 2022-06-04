@@ -1,7 +1,9 @@
+from time import sleep
+from solver import solver
 from core.check import run
-from core.utils import clear, get_livesudoku_url, bye, get_browser
-from core.settings import flag, line, config
 from scrapper import get_table
+from core.settings import flag, line, config
+from core.utils import clear, get_livesudoku_url, bye, get_browser
 
 
 def main():
@@ -40,8 +42,13 @@ def main():
     sudoku_table = get_table(browser, selectors['tr'], selectors['td'], selectors['data'])
     print(line, "Sudoku :", *sudoku_table, sep="\n")
 
+    # solve sudoku by z3
+    print('> Solving ...')
+    sleep(config['sleep'])
+    solved_table = solver(sudoku_table)
+    print(line, "Result of solver :", *solved_table, sep="\n")
+    print("> Completed !")
 
-    #   solve sudoku by z3
     #   set solved sudoku in web table
     #   send sudoku
     #   kill browser !
