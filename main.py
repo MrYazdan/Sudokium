@@ -1,5 +1,5 @@
 from core.check import run
-from core.utils import clear, get_livesudoku_url
+from core.utils import clear, get_livesudoku_url, bye
 from core.settings import flag
 
 
@@ -15,7 +15,7 @@ def main():
     while True:
 
         if _counter == 3:
-            pass
+            bye()
 
         try:
             level = input(f"> Enter level of livesudoku [easy, medium, hard, evil] : ")
@@ -26,7 +26,7 @@ def main():
             print(e, ",Try again!")
 
         except KeyboardInterrupt as e:
-            pass
+            bye()
 
     #   run browser driver
     #   get sudoku table

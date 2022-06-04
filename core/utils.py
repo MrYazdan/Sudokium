@@ -19,3 +19,8 @@ def get_livesudoku_url(level: str) -> str:
 
     assert level.lower() in config['livesudoku']['levels'], 'Invalid livesudoku level!'
     return config['livesudoku']['base_url'] + level.lower()
+
+
+def bye() -> None:
+    print('\nGoodbye ! :)')
+    exit()
