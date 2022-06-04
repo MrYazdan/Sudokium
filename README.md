@@ -29,3 +29,6 @@ Selenium Sudoku Solver [livesudoku.com] - Isfahan Gonbad Academy
 > python main.py
 
 ### Good luck :)
+
+* * *
+🤓 **Memory** : _Teaching advanced python to 14 active students in Isfahan - 14 Khordad 1401_
