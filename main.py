@@ -1,8 +1,10 @@
-from settings import configs
+from core.check import run
 
 def main():
     # todo :
     #   check user to install dependencies
+    run()
+    
     #   get level from user
     #   run browser driver
     #   get sudoku table

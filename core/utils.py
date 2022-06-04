@@ -1,9 +1,5 @@
-config = {
-    'livesudoku': {
-        'base_url': 'https://www.livesudoku.com/en/sudoku/',
-        'levels': ['easy', 'medium', 'hard', 'evil']
-    }
-}
+from core.settings import config
+
 
 def get_livesudoku_url(level: str) -> str:
     """
