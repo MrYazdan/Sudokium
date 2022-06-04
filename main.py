@@ -1,6 +1,7 @@
 from core.check import run
 from core.utils import clear, get_livesudoku_url, bye, get_browser
-from core.settings import flag, line
+from core.settings import flag, line, config
+from scrapper import get_table
 
 
 def main():
@@ -34,7 +35,12 @@ def main():
     print(f'Starting webdriver : [LOG]\n{line}', end='')
     browser = get_browser(url)
 
-    #   get sudoku table
+    # get sudoku table
+    selectors = config['livesudoku']['selectors']
+    sudoku_table = get_table(browser, selectors['tr'], selectors['td'], selectors['data'])
+    print(line, "Sudoku :", *sudoku_table, sep="\n")
+
+
     #   solve sudoku by z3
     #   set solved sudoku in web table
     #   send sudoku

@@ -1,7 +1,12 @@
 config = {
     'livesudoku': {
         'base_url': 'https://www.livesudoku.com/en/sudoku/',
-        'levels': ['easy', 'medium', 'hard', 'evil']
+        'levels': ['easy', 'medium', 'hard', 'evil'],
+        'selectors': {
+            'tr': '#playtable>tbody>tr',
+            'td': "td",
+            'data': "span"
+        }
     },
     'sleep': 1,  # Sleep time to set number in block of sudoku table
 }
