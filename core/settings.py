@@ -6,8 +6,9 @@ config = {
     'sleep': 1,  # Sleep time to set number in block of sudoku table
 }
 
+line = "--------------------------------------------------"
 
-flag = """
+flag = f"""
    _____           __      __   _               
   / ___/__  ______/ /___  / /__(_)_  ______ ___ 
   \__ \/ / / / __  / __ \/ //_/ / / / / __ `__ \\
@@ -17,4 +18,4 @@ flag = """
 # Isfahan Gonbad - selenium livesudoku solver                                      
 > repo : https://github.com/MrYazdan/Sudokium/
 > version : 1.0
-_________________________________________________"""
+{line}"""

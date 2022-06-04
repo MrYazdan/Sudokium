@@ -1,6 +1,6 @@
 from core.check import run
-from core.utils import clear, get_livesudoku_url, bye
-from core.settings import flag
+from core.utils import clear, get_livesudoku_url, bye, get_browser
+from core.settings import flag, line
 
 
 def main():
@@ -15,11 +15,13 @@ def main():
     while True:
 
         if _counter == 3:
+            print("Have a good time.")
             bye()
 
         try:
-            level = input(f"> Enter level of livesudoku [easy, medium, hard, evil] : ")
+            level = input(f"> Type level [easy, medium, hard, evil] : ")
             url = get_livesudoku_url(level)
+            break
 
         except AssertionError as e:
             _counter += 1
@@ -28,7 +30,10 @@ def main():
         except KeyboardInterrupt as e:
             bye()
 
-    #   run browser driver
+    # run browser driver
+    print(f'Starting webdriver : [LOG]\n{line}', end='')
+    browser = get_browser(url)
+
     #   get sudoku table
     #   solve sudoku by z3
     #   set solved sudoku in web table

@@ -24,3 +24,16 @@ def get_livesudoku_url(level: str) -> str:
 def bye() -> None:
     print('\nGoodbye ! :)')
     exit()
+
+def get_browser(url: str):
+    from selenium import webdriver
+    from selenium.webdriver.chrome.service import Service
+    from webdriver_manager.chrome import ChromeDriverManager
+    from time import sleep
+
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    browser.get(url)
+    
+    sleep(config['sleep'])
+
+    return browser
