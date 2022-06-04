@@ -1,6 +1,7 @@
 from time import sleep
 from solver import solver
 from core.check import run
+from injector import injector
 from scrapper import get_table
 from core.settings import flag, line, config
 from core.utils import clear, get_livesudoku_url, bye, get_browser
@@ -9,9 +10,9 @@ from core.utils import clear, get_livesudoku_url, bye, get_browser
 def main():
     # check user to install dependencies
     run()
-    
+
     # get level from user
-    clear() # clear screen
+    clear()  # clear screen
     print(flag)
 
     _counter = 0
@@ -49,11 +50,15 @@ def main():
     print(line, "Result of solver :", *solved_table, sep="\n")
     print("> Completed !")
 
-    #   set solved sudoku in web table
-    #   send sudoku
-    #   kill browser !
+    # set solved sudoku in web table
+    print(line, '> Injecting ...', sep="\n")
+    injector(solved_table, browser, selectors, config['sleep'])
+    print(line, "Sudoku solved ! :)",  sep="\n")
 
-    pass
+    #   kill browser !
+    input(line + "\n> Press enter to exit !")
+    browser.close()
+
 
 if __name__ == "__main__":
     main()
